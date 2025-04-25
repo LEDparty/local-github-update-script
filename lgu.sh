@@ -26,6 +26,9 @@ error_msg()
 	echo -e "\t$SCRIPT_NAME --message:"
 	echo -e "\trun like normal, but make a short, inline commit message instead"
 	echo -e "\tinstead of pulling up your configured text editor during commits."
+	echo
+	echo -e "\t$SCRIPT_NAME --help or -h:"
+	echo -e "\tdisplay this help message."
 	exit 1
 }		
 
@@ -43,6 +46,14 @@ if [ "$#" -eq 1 ]; then
 		--status)
 			;;
 		--message)
+			;;
+		--help)
+			echo
+			error_msg
+			;;
+		-h)
+			echo
+			error_msg
 			;;
 		*)
 			echo "Invalid option \"$1\""
@@ -207,7 +218,7 @@ else
 	if ! [[ "$update_ansr" =~ ^[yY] || "$update_ansr" =~ ^[nN] ]]; then
 		echo "Choose answer other than \"y\" or \"yes\". Exiting..."
 		exit 1
-	elif [[ "$ansr_ansr" =~ ^[Nn] ]]; then
+	elif [[ "$update_ansr" =~ ^[Nn] ]]; then
 		exit 0
 	fi
 
