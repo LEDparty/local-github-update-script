@@ -182,7 +182,7 @@ if ! [ -d ".git" ]; then
 	fi	
 
 	echo -n "Would you like to configure this repository to use SSH? (y/n)"
-	read ssh_answer
+	read ssh_ansr
 
 	if [[ "$ssh_ansr" =~ ^[yY] ]]; then
 		echo -n "Enter username: "
